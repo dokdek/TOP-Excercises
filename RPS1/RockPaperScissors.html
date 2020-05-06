@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<script>
+  function computerPlay() {
+    let selectionChoices = [`rock`, `paper`, `scissors`];
+    return selectionChoices[~~(Math.random() * selectionChoices.length)];
+  }
+  //Implies valid input and correct spelling. Case insensitive
+  function playRound(playerSelection, computerSelection) {
+    let cleanPSelection = playerSelection.toLowerCase();
+    if (cleanPSelection == computerSelection) {
+      return `You tied, you both selected ${cleanPSelection}`;
+    } else if (
+      (cleanPSelection == `rock` && computerSelection == `paper`) ||
+      (cleanPSelection == `paper` && computerSelection == `scissors`) ||
+      (cleanPSelection == `scissors` && computerSelection == `rock`)
+    ) {
+      return `You lose, ${computerSelection} beats ${cleanPSelection}`;
+    } else {
+      return `You won~ ${cleanPSelection} beats ${computerSelection}`;
+    }
+  }
+
+  function game() {
+    let playerSelection;
+    let winCount = 0;
+    for (i = 0; i < 5; i++) {
+      let endResult = playRound(
+        (playerSelection = prompt(`Please enter your choice:`)),
+        computerPlay()
+      );
+      if (endResult.search(`won`) > -1) {
+        winCount++;
+      }
+      console.log(endResult);
+      console.log(`Your amount of wins is: ${winCount}`);
+    }
+  }
+</script>
