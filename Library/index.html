@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Library</title>
+        <script src='script.js' defer></script>
+        <link href='style.css' rel='stylesheet'></link>
+    </head>
+<body>
+    <h1 id='heading'>Library</h1>
+    <table id='table' hidden style='width: 50%'>
+        <tr>
+            <th class='table-title' id='title-col'>Title</th>
+            <th class="table-title" id='author-col'>Author</th>
+            <th class='table-title' id='pages-col'>Pages</th>
+            <th class='table-title' id='read-col'>Read?</th>
+            <th class="table-title" id='remove-col'></th>
+        </tr>
+    </table>
+    <button id='add-btn'>Add an entry</button>
+    <div id='add-form' hidden>
+        <form onsubmit="return false">
+            <label for='title'>Title: </label><br>
+            <input type='text' id='title' name='title' required><br>
+            <label for='author'>Author: </label><br>
+            <input type='text' id='author' name='author' required><br>
+            <label for='pages'>Pages: </label><br>
+            <input type='number' id='pages' name='pages' required><br>
+            <label for='isRead'>Read: </label><br>
+            <select id='isRead' required>
+                <option value='true'>Yes</option>
+                <option value='false'>No</option>
+            </select>
+            <button id='submit-btn'>Submit</button>
+        </form>
+    </div>
+</body>
+
+</html>
